@@ -1,0 +1,2 @@
+show:
+	grunt --verbose server
