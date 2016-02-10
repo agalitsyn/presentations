@@ -613,6 +613,27 @@ Search in:
 * stats.gauges.vulcan
 
 ---
+.left-column[
+  ### Scope
+  #### Дальнейшие действия
+]
+.right-column[
+
+- Middleware для зеркалирования траффика
+
+- Централизованное логирование и метрики
+
+- Алгоритм балансировки Weighted Random
+
+- Интеграция в Deis
+
+- Алгоритм балансировки Least time (first response)
+
+- Нагрузочное тестирование
+
+.footnote[Ref: [Jira CD-1063](https://jira.2gis.ru/browse/CD-1063)]
+]
+---
 layout: false
 background-image: url(images/fellowship.jpg)
 .left-column[
