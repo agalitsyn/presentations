@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-	<title>OpenStack в 2ГИС</title>
+	<title>Используем OpenStack</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=792, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -94,14 +94,14 @@
 
 <body class="list">
 	<header class="caption">
-		<h1>OpenStack в 2ГИС</h1>
+		<h1>Используем OpenStack</h1>
 		<p>
 			Антон Галицын, <a href="http://2gis.ru" title="2GIS">2GIS</a>
 		</p>
 	</header>
 
 	<section class="slide cover cover-title" id="title"><div>
-		<h2>OpenStack в 2ГИС</h2>
+		<h2>Используем OpenStack</h2>
 		<p>Антон Галицын</p>
 		<img src="pictures/2gis-cover.png" alt="2GIS Logo">
 	</div></section>
@@ -110,10 +110,21 @@
 		<h2>Содержание</h2>
 		<ul class="list-large">
 			<li>Что такое OpenStack?</li>
-			<li>Статус OpenStack в 2ГИС</li>
-			<li>Требования, сценарии использования</li>
-			<li>История интеграции в 2ГИС</li>
-			<li><span style="color: #EC971F">[Bonus]</span> Private cloud quickstart</li>
+			<li>Статус 2GIS OpenStack</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Содержание</h2>
+		<ul class="list-compact">Обзор и демо компонентов
+			<li>Dashboard (Horizon)</li>
+			<li>Compute (Nova)</li>
+			<li>Glance (VMI)</li>
+			<li>Cinder (Volumes)</li>
+			<li>Neutron (Network)</li>
+			<li>Keystone (Auth)</li>
+			<li>Designate (DNS)</li>
+			<li>Heat (Orchestration)</li>
 		</ul>
 	</div></section>
 
@@ -130,91 +141,88 @@
 
 	<section class="slide"><div>
 		<h2>OpenStack - open source</h2>
-		<ul>
+		<ul><a href="http://status.openstack.org/" title="OpenStack status">status.openstack.org</a>
+			<li>Статус релиза</li>
+			<li>Активные code review</li>
+			<li>Roadmap</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>OpenStack - open source</h2>
+		<ul>Сообщество
 			<li>Ядро <a href="https://github.com/openstack" title="OpenStack github">github.com/openstack</a></li>
 			<li>Инкубатор <a href="https://github.com/stackforge" title="Stackforge github">github.com/stackforge</a></li>
-			<li>Статус релиза <a href="http://status.openstack.org/" title="OpenStack status">status.openstack.org</a></li>
-			<li>Контрибьюторы <a href="https://www.openstack.org/foundation/companies/" title="OpenStack foundation">openstack.org/foundation/companies</a></li>
+			<li>Неофициальные проекты <a href="https://github.com/search?q=openstack" title="Search OpenStack projects on github">github.com/search?q=openstack</a></li>
+			<li>Конференции, встречи, Q&A, mail-lists, и т.д. <a href="https://www.openstack.org/community/" title="OpenStack community portal">openstack.org/community</a></li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Контрибьюторы OpenStack</h2>
+		<ul><a href="https://www.openstack.org/foundation/companies/" title="OpenStack foundation">openstack.org/foundation/companies</a>
+			<li>Red Hat</li>
+			<li>Rackspace</li>
+			<li>IBM</li>
+			<li>Intel</li>
+			<li>NASA</li>
+			<li>HP</li>
+			<li>Cisco</li>
 		</ul>
 	</div></section>
 
 	<section class="slide shout section-begin"><div>
-		<h2>Статус OpenStack в 2ГИС</h2>
+		<h2>Статус 2GIS OpenStack</h2>
 	</div></section>
 
 	<section class="slide"><div>
-		<h2>Статус OpenStack в 2ГИС</h2>
-		<ul>
-			<li>20 команд</li>
-			<li>250+ VMs</li>
+		<h2>Особенности</h2>
+		<ul class="list-compact">
+			<li>Поддерживается командами CD и INFRAADM</li>
+			<li>Автоматический деплоймент</li>
+			<li>Отказоустойчивость (сервисы x3) </li>
+			<li><span class="grey">Пока</span> 2 hardware сервера</li>
+		</ul>
+		<ul class="list-compact">Ожидается
+			<li>Больше hardware серверов</li>
+			<li>Постепенная миграция dev proxmox кластера</li>
 		</ul>
 	</div></section>
 
 	<section class="slide"><div>
-		<h2>Статус OpenStack в 2ГИС</h2>
-		<ul>
-			<li>3x control plane</li>
-			<li>3x backing services</li>
-			<li>7 compute серверов</li>
-			<li>1 инсталляция во внутренней сети</li>
-		</ul>
-	</div></section>
-
-	<section class="slide shout section-begin"><div>
-		<h2>Сценарии использования и требования</h2>
-	</div></section>
-
-	<section class="slide"><div>
-		<h2>Сценарии Dev / QA / PM</h2>
-		<ul>
-			<li>Рабочее окружение</li>
-			<li>Демо стенды</li>
-			<li>Интеграционные стенды</li>
-			<li>Тестовые стенды</li>
-			<li>Командная инфраструктура</li>
-			<li>Внутренние сервисы</li>
-			<li>Эксперименты</li>
+		<h2>Подключенные команды</h2>
+		<ul class="list-compact">
+			<li>Личный кабинет</li>
+			<li>Буклеты</li>
+			<li>Flamp</li>
+			<li>Online</li>
+			<li>Persona</li>
+			<li>Photo</li>
+			<li>WebAPI</li>
+			<li>Microservices</li>
+			<li>Webmaps</li>
 		</ul>
 	</div></section>
 
 	<section class="slide"><div>
-		<h2>Последствия downtime</h2>
-		<ul>
-			<li>Лежит инфраструктура команды &rarr; отсрочка релиза или релиз без регрессии</li>
-			<li>Лежит интеграционный стенд &rarr; отсрочка разработки интеграционной фичи</li>
-			<li>Лежит демо стенд &rarr; отсрочка фидбека о новой фиче</li>
-			<li>Потеря репутации</li>
+		<h2>Подключенные команды</h2>
+		<ul class="list-compact">
+			<li>QA Automation</li>
+			<li>Casino</li>
+			<li>Fiji</li>
+			<li>Internal admin</li>
+			<li>Load testing</li>
+			<li>Continuous Delivery</li>
 		</ul>
 	</div></section>
 
 	<section class="slide"><div>
-		<h2>Сценарии Dev / Ops</h2>
-		<ul>
-			<li>Внутренние сервисы</li>
-			<li>Эксперименты</li>
-		</ul>
-	</div></section>
-
-	<section class="slide"><div>
-		<h2>Требования</h2>
-		<ul>
-			<li>Стабильность</li>
-			<li>Производительность</li>
-			<li>Малый downtime</li>
-			<li>Простая поддержка</li>
-		</ul>
-	</div></section>
-
-	<section class="slide"><div>
-		<h2>Будущее</h2>
-		<ul>
-			<li>Боевая инфраструктура - 4 дата центра</li>
-			<li>Upgrade на Kilo и Liberty</li>
-		</ul>
+		<h2>Подробный статус</h2>
+		<p>CD State report</p>
 	</div></section>
 
 	<section class="slide shout" id="orange_shout"><div>
-		<h2>Как удовлетворить требования?</h2>
+		<h2>Обзор и демо сервисов</h2>
 		<style>
 			#orange_shout div {
 				background-color: #e77c4f;
@@ -226,203 +234,129 @@
 		</style>
 	</div></section>
 
-	<section class="slide"><div>
-		<h2>1 - cервисы OpenStack</h2>
-		<ul class="list-compact">
-			<li>Dashboard (Horizon)</li>
-			<li>Compute (Nova)</li>
-			<li>Glance (VMI)</li>
-			<li>Cinder (Volumes)</li>
-			<li>Neutron (Network)</li>
-			<li>Keystone (Auth)</li>
-			<li>Designate (DNS)</li>
-			<li>Heat (Orchestration)</li>
-			<li>Ceilometer (Telemetry)</li>
-		</ul>
+	<section class="slide shout section-begin"><div>
+		<h2>Horizon (Dashboard)</h2>
 	</div></section>
 
 	<section class="slide"><div>
-		<h2>2 - мониторинг</h2>
-		<ul>
-			<li>Железо</li>
-			<li>Compute сервера</li>
-			<li>Control plane сервера</li>
-			<li>Сервисы</li>
-		</ul>
-	</div></section>
-
-	<section class="slide"><div>
-		<h2>3 - логирование</h2>
-		<ul>Централизованный сервер логов
-			<li>OpenStack сервисы</li>
-			<li>Backing сервисы</li>
-		</ul>
-	</div></section>
-
-	<section class="slide"><div>
-		<h2>4 - резервное копирование</h2>
-		<p>Регулярные бэкапы БД</p>
-	</div></section>
-
-	<section class="slide"><div>
-		<h2>5 - deploy</h2>
-		<ul>
-			<li>Храние конфигурации в коде</li>
-			<li>Создание новых узлов</li>
-			<li>Доставка патчей</li>
-			<li>Минорные апгрейды</li>
-			<li>Мажорные апгрейды</li>
-		</ul>
-	</div></section>
-
-	<section class="slide"><div>
-		<h2>6 - автотесты</h2>
-		<ul>
-			<li>Smoke тесты на API</li>
-			<li>Full regression тесты</li>
-			<li>Тесты на деплой</li>
-		</ul>
-	</div></section>
-
-	<section class="slide"><div>
-		<h2>7 - статистика</h2>
-		<ul>
-			<li>Uptime</li>
-			<li>Работоспособность P0 сценариев</li>
-			<li>Телеметрия по проектам</li>
-		</ul>
-	</div></section>
-
-	<section class="slide"><div>
-		<h2>8 - команда</h2>
-		<ul>
-			<li>Интеграция</li>
-			<li>Тех. поддержка</li>
-			<li>Работа с людьми</li>
-			<li>Промоушен</li>
-			<li>Развитие</li>
-		</ul>
-	</div></section>
-
-	<section class="slide shout" id="green_shout"><div>
-		<h2>История в 2ГИС</h2>
-		<style>
-			#green_shout div {
-				background-color: #a6ce38;
-			}
-			#green_shout h2 {
-				font-size: 100px!important;
-			}
-		</style>
-	</div></section>
-
-	<section class="slide"><div>
-		<h2>Было</h2>
-		<ul>
-			<li>У админов есть Proxmox</li>
-			<li>У команд есть vagrant и что-то в proxmox</li>
-		</ul>
-	</div></section>
-
-	<section class="slide"><div>
-		<h2>Проблемы процессов</h2>
-		<ul>
-			<li>Создание виртуалок по тикету</li>
-			<li>Нет развития автоматизации и тестирования</li>
-			<li>Есть ничьи машинки</li>
-			<li>По ошибке удалил не свою машинку</li>
-		</ul>
-	</div></section>
-
-	<section class="slide"><div>
-		<h2>Проблемы инфраструктуры</h2>
-		<ul>
-			<li>Нет разделения по проектам</li>
-			<li>Старые ядра Linux</li>
-			<li>Конфликты IP адресов</li>
-			<li>Рассинхронизация версий proxmox, баги</li>
-		</ul>
-	</div></section>
-
-	<section class="slide"><div>
-		<h2>Проблемы развития</h2>
-		<ul>
-			<li>Одноранговый кластер, не дать доступ командам, каша и бардак</li>
-			<li>Плагины либо платные либо плохие</li>
-			<li>Все делается медленно</li>
-		</ul>
-	</div></section>
-
-	<section class="slide"><div>
-		<h2>Поиск замены Proxmox</h2>
-		<ul>
-			<li>OpenStack</li>
-			<li>Apache Cloudstack</li>
-			<li>Canonical Juju</li>
-			<li>Оставить все как есть</li>
-		</ul>
-	</div></section>
-
-	<section class="slide"><div>
-		<h2>OpenStack первый</h2>
-		<ul>
-			<li>Ice House</li>
-			<li>1 control plane</li>
-			<li>1 backing services</li>
-			<li>2 compute node</li>
-			<li>4 команды юзеров</li>
-		</ul>
-	</div></section>
-
-	<section class="slide"><div>
-		<h2 style="text-decoration:line-through">OpenStack первый</h2>
-		<ul>
-			<li>В proxmox удалили control plane</li>
-			<li>Compute хосты остались жить</li>
-			<li>Команды в отчаянии</li>
+		<h2>Что такое Horizon?</h2>
+		<ul>Панель для управления сервисами
+			<li>Стандартизованный UI</li>
+			<li>Единая точка входа для юзеров</li>
 		</ul>
 	</div></section>
 
 	<section class="slide shout section-begin"><div>
-		<h2>Спустя 2 недели...</h2>
+		<h2>Nova (Compute)</h2>
 	</div></section>
 
 	<section class="slide"><div>
-		<h2>OpenStack второй</h2>
-		<ul>
-			<li>Juno</li>
-			<li>3 control plane</li>
-			<li>3 backing services</li>
-			<li>Дальнейшее развитие</li>
+		<h2>Что такое Nova?</h2>
+		<ul>Управление виртуальными машинами.
+			<li>Обработка запросов на создание виртуальных машин</li>
+			<li>Соединение их с внешним миром</li>
+			<li>Контроль за работоспособностью и распределением нагрузки на физические машины и каналы связи</li>
+			<li>Реакция на сбои</li>
 		</ul>
 	</div></section>
 
-	<section class="slide shout" id="yellow_shout"><div>
-		<h2>Private cloud quickstart</h2>
-		<style>
-			#yellow_shout div {
-				background-color: #f9ec00;
-			}
-			#yellow_shout h2 {
-				font-size: 100px!important;
-			}
-		</style>
+	<section class="slide shout section-begin"><div>
+		<h2>Glance (VMI)</h2>
 	</div></section>
 
 	<section class="slide"><div>
-		<h2>Вам понадобится</h2>
-		<ul>
-			<li>Попробовать <a href="https://github.com/openstack-dev/devstack">devstack</a></li>
-			<li>Определиться с набором сервисов</li>
-			<li>Сервера с Ubuntu trusty (2+)</li>
-			<li>Знание <a href="https://github.com/ansible/ansible">Ansible</a></li>
-			<li><a href="https://github.com/stackforge/os-ansible-deployment">Rackspace private cloud tools</a></li>
-			<li>Осилить порог вхождения (~1 месяц)</li>
+		<h2>Что такое Glance?</h2>
+		<ul>Управление образами виртуальных машин
+			<li>Хранение</li>
+			<li>Поиск</li>
+			<li>Менеджмент образов</li>
+			<li>Уровни видимости</li>
 		</ul>
+	</div></section>
+
+	<section class="slide shout section-begin"><div>
+		<h2>Cinder (Volumes)</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Что такое Cinder?</h2>
+		<ul>Сервис управления постоянными хранилищами
+			<li>Создание и удаление</li>
+			<li>Монтирование и демонтирование к VM</li>
+			<li>Создание и удаление snapshots</li>
+			<li>Создание из snapshot</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout section-begin"><div>
+		<h2>Neutron (Network)</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Что такое Neutron?</h2>
+		<ul>Сервис виртуальных сетей
+			<li>Сети</li>
+			<li>Подсети</li>
+			<li>Порты</li>
+			<li>Роутеры</li>
+			<li>Floating IP</li>
+			<li>Firewall</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout section-begin"><div>
+		<h2>Keystone (Auth)</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Что такое Keystone?</h2>
+		<ul>Сервис авторизации
+			<li>Управление пользователями, проектами, ролями</li>
+			<li>Service discovery</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout section-begin"><div>
+		<h2>Designate (DNS)</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Что такое Designate?</h2>
+		<ul>DNS как сервис
+			<li>Управление DNS серверами</li>
+			<li>Управление доменами</li>
+			<li>Управление записями</li>
+		</ul>
+		<p></p>
+	</div></section>
+
+	<section class="slide shout section-begin"><div>
+		<h2>Heat (Orchestration)</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Что такое Heat?</h2>
+		<ul>Автоматизация облачных сервисов
+			<li>Объединение ресурсов в группы</li>
+			<li>Связь ресурсов, зависимости</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Хочу попробовать!</h2>
+		<ul class="list-large">
+			<li>2GIS OpenStack User FAQ</li>
+			<li>2GIS OpenStack Dashboard</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Моей команды нет в списке?!</h2>
+		<p>Заводите задачу в Jira</p>
 	</div></section>
 
 	<section class="slide cover cover-contacts"><div>
-		<h2>Вопросы?</h2>
+		<h2>Команда CD</h2>
 		<div><span></span><h2>Спасибо!</h2></div>
 		<img src="pictures/2gis-cover.png" alt="2GIS Logo">
 	</div></section>
@@ -430,5 +364,6 @@
 	<div class="progress"><div></div></div>
 
 	<script src="node_modules/shower-core/shower.min.js"></script>
+
 </body>
 </html>
