@@ -1,112 +1,120 @@
-var fs = require('fs');
-
 module.exports = function(grunt) {
 
-  // Project configuration.
-  grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
-    jshint: {
-      files: ['src/js/reveal.js'],
-      options: {}
-    },
-    copy: {
-      app: {
-        files: [{
-          expand: true,
-          cwd: 'src',
-          src: ['js/**', 'css/**', 'images/**'],
-          dest: 'dist/'
-        }]
-      }
-    },
-    template: {
-      app: {
-        options: {
-          data: {
-            title: 'presentation-title',
-            content: fs.readFileSync('src/slides.md').toString()
-          }
-        },
-        files: {
-          'dist/index.html': ['src/layout.html']
-        }
-      }
-    },
-    connect: {
-      dist: {
-        options: {
-        port: 5455,
-        hostname: 'localhost',
-          middleware: function (connect) {
-            return [
-              require('grunt-contrib-livereload/lib/utils').livereloadSnippet,
-              connect.static(require('path').resolve('dist'))
-            ];
-          }
-        }
-      }
-    },
-    open: {
-      dist: {
-        path: 'http://localhost:5455',
-        app: 'xdg-open'
-      }
-    },
-    clean: {
-      dist: 'dist'
-    },
-    watch: {
-      dist: {
-        files: ['dist/**'],
-        options: {
-          livereload: true
-        }
-      },
-      copy: {
-        files: [
-          'src/js/**',
-          'src/css/**',
-          'src/images/**'
-        ],
-        tasks: ['copy']
-      },
-      template: {
-        files: [
-          'src/slides.md',
-          'src/layout.html'
-        ],
-        tasks: ['template']
-      }
-    },
-    mkcouchdb: {
-      app: require('./couchapp.json')
-    },
-    couchapp: {
-      app: require('./couchapp.json')
-    }
-  });
+	require('load-grunt-tasks')(grunt);
 
-  // Load plugins
-  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+	grunt.initConfig({
+		bump: {
+			options: {
+				files: ['package.json', 'bower.json'],
+				commitFiles: ['package.json', 'bower.json'],
+				pushTo: 'origin'
+			}
+		},
+		copy: {
+			prepare: {
+				files: [{
+					src: [
+						'**',
+						'!node_modules/**',
+						'!bower_components/**',
+						'!Contributing.md',
+						'!Gruntfile.js',
+						'!License.md',
+						'!Readme.md',
+						'!bower.json',
+						'!package.json'
+					],
+					dest: 'temp/pres/'
+				},{
+					expand: true,
+					cwd: 'node_modules/shower-core/',
+					src: [
+						'**',
+						'!package.json',
+						'!Readme.md'
+					],
+					dest: 'temp/pres/shower/'
+				},{
+					expand: true,
+					cwd: 'node_modules/shower-ribbon/',
+					src: [
+						'**',
+						'!package.json',
+						'!Readme.md'
+					],
+					dest: 'temp/pres/shower/themes/ribbon/'
+				},{
+					expand: true,
+					cwd: 'node_modules/shower-bright/',
+					src: [
+						'**',
+						'!package.json',
+						'!Readme.md'
+					],
+					dest: 'temp/pres/shower/themes/bright/'
+				}]
+			}
+		},
+		replace: {
+			core: {
+				src: 'temp/pres/index.html',
+				overwrite: true,
+				replacements: [{
+					from: /(node_modules|bower_components)\/shower-core/g,
+					to: 'shower'
+				},{
+					from: /(node_modules|bower_components)\/shower-(ribbon|bright)/g,
+					to: 'shower/themes/$2'
+				}]
+			},
+			themes: {
+				src: 'temp/pres/shower/themes/*/index.html',
+				overwrite: true,
+				replacements: [{
+					from: '../shower-core', to: '../..'
+				}]
+			}
+		},
+		'gh-pages': {
+			options: {
+				base: 'temp/pres',
+				clone: 'temp/clone'
+			},
+			src: ['**']
+		},
+		compress: {
+			shower: {
+				options: {
+					archive: 'archive.zip'
+				},
+				files: [{
+					expand: true,
+					cwd: 'temp/pres/',
+					src: '**',
+					dest: '.'
+				}]
+			}
+		},
+		clean: ['temp']
+	});
 
-  // Default task(s).
-  grunt.registerTask('build', [
-    'clean',
-    'copy',
-    'template'
-  ]);
+	grunt.registerTask('publish', [
+		'copy',
+		'replace',
+		'gh-pages',
+		'clean'
+	]);
 
-  grunt.registerTask('deploy', [
-    'build',
-    'mkcouchdb',
-    'couchapp'
-  ]);
+	grunt.registerTask('archive', [
+		'copy',
+		'replace',
+		'compress',
+		'clean'
+	]);
 
-  grunt.registerTask('server', [
-    'build',
-    'connect',
-    'open',
-    'watch'
-  ]);
+	grunt.registerTask('export', [
+		'copy',
+		'replace'
+	]);
 
 };
