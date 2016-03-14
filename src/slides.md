@@ -2,51 +2,178 @@ name: inverse
 layout: true
 class: center, middle, inverse
 ---
-#remark
-[ri-mahrk]
-.footnote[Go to directly to [project site](https://github.com/gnab/remark)]
+# Автоматизация тестовой инфраструктуры
+<!-- [ri-mahrk] -->
+.footnote[Антон Галицын, [2GIS](2gis.ru)]
+
+???
+Всем привет, меня зовут Антон, и сегодня мы поговорим об автоматизации тестовой инфраструктуры в 2ГИСе
+
 ---
-## What is it and why should I be using it?
+## План
 ---
 layout: false
 .left-column[
-  ## What is it?
+  ## План
+  ### Часть 1
 ]
 .right-column[
-  A simple, in-browser, Markdown-driven slideshow tool targeted at people who know their way around HTML and CSS, featuring:
 
-- Markdown formatting, with smart extensions
+- Что такое достоверные автотесты
 
-- Presenter mode, with cloned slideshow view
+- Об отделе Infrastrusture & Automation
 
-- Syntax highlighting, supporting a range of languages
+- Какой была инфраструктура в конце 2013
 
-- Slide scaling, thus similar appearance on all devices / resolutions .red[*]
-
-- Touch support for smart phones and pads, i.e. swipe to navigate slides
-
-.footnote[.red[*] At least browsers try their best]
 ]
+
+???
+Доклад состоит из 3х частей, первая - поговорим о том, что такое достоверные автотесты, существуют ил они? Потом об отделе Infrastrusture & Automation, в котором я работаю, и чем мы занимаемся. Он появился недавно, поэтому стоит отметить какой была инфраструктура в конце 2013, на момент создания тогда еще команды.
+
+---
+layout: false
+.left-column[
+  ## План
+  ### Часть 1
+  ### Часть 2
+]
+.right-column[
+
+- Что такое достоверные автотесты
+
+- Об отделе Infrastrusture & Automation
+
+- Какой была инфраструктура в конце 2013
+
+- Какие проблемы и потребности были у команд
+
+- Внедрение OpenStack для IaaS
+
+- Сценарии использования OpenStack
+]
+
+???
+Во второй части мы обсудим какие проблемы в области инфраструктуры стояли перед командами. Почему мы решили, что будем внедрять OpenStack, и какие сценарии его использования у нас есть.
+
+---
+layout: false
+.left-column[
+  ## План
+  ### Часть 1
+  ### Часть 2
+  ### Часть 3
+]
+.right-column[
+
+- Что такое достоверные автотесты
+
+- Об отделе Infrastrusture & Automation
+
+- Какой была инфраструктура в конце 2013
+
+- Какие проблемы и потребности были у команд
+
+- Внедрение OpenStack для IaaS
+
+- Сценарии использования OpenStack
+
+- Развитие автоматизации и новые внутренние продукты на базе OpenStack
+]
+
+???
+Напоследок я расскажу, как автоматизация получила дополнительный толчок в развитии и начали появляться новые внутренние продукты.
+
+---
+template: inverse
+
+## Достоверные автотесты
+---
+
+### Достоверные автотесты
+
+- Результат тестов повторяем
+
+- Результат соответсвует реальной картине на бою
+
+???
+Достоверные автотесты - а бывают ли они? Я бы выделил 2 главных черты - результаты повторяемы, и они реально отражают ситуацию на бою.
+Если они то падают, то нет, доверия к тестам нет и их просто скипают. Если в тестовой среде ничего не падает, а на бою падает, то в следующий раз тестировать будут прямо на бою.
+
+---
+
+### Достоверные автотесты
+
+- Результат тестов повторяем
+
+- Результат соответсвует реальной картине на бою
+
+#### Как добиться?
+
+Нужно окружение
+
+- Легко развертываемое
+
+- Приближенное к бою
+
+???
+Допустим тесты есть. А где и на чем их гонять? Нужно окружение.
+
+---
+
+### Достоверные автотесты
+
+- Результат тестов повторяем
+
+- Результат соответсвует реальной картине на бою
+
+#### Как добиться?
+
+Нужно окружение
+
+- Легко развертываемое
+
+- Приближенное к бою
+
+#### Идеал
+
+Полная копия боя с базой за 1 наносекунду у вас на ноутбуке.
+
+???
+Идеал - это копия боя, которая разворачивается за 1 наносекунду с полной боевой базы. Увы, в 2гис сервисы большие, их много и такое физически невозможно. Нужно инженерное решение.
+
+---
+template: inverse
+
+## Infrastrusture & Automation
+
+???
+Поэтому у нас есть отдел, готовый решить эти проблемы
 ---
 .left-column[
-  ## What is it?
-  ## Why use it?
+  ## IO
 ]
 .right-column[
-If your ideal slideshow creation workflow contains any of the following steps:
+Отдел в 2ГИС, занимающийся:
 
-- Just write what's on your mind
+- Интеграцией OpenStack
 
-- Do some basic styling
+- Платформой для web и backend сервисов
 
-- Easily collaborate with others
+- Автоматизацией HA баз данных
 
-- Share with and show to everyone
+- Системой логирования и мониторинга
 
-Then remark might be perfect for your next.red[*] slideshow!
+- Разработкой тулов для разработчиков
 
-.footnote[.red[*] You probably want to convert existing slideshows as well]
+- Эксплуатацией боевой инфраструктуры
+
+.footnote[.red[*] Мы используем python, ansible, docker, golang]
+
 ]
+
+???
+Мы занимаемся разными инфраструктурными проектами, такими как *список*, в частности сегодня говорить будем про OpenStack, в котором я работал в прошлом году.
+
 ---
 .left-column[
   ## What is it?

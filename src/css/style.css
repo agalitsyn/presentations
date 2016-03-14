@@ -1,16 +1,16 @@
 @import url(http://fonts.googleapis.com/css?family=Droid+Serif);
-@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
 
 body {
   font-family: 'Droid Serif';
   font-size: 20px;
 }
 h1, h2, h3 {
-  font-family: 'Yanone Kaffeesatz';
+  font-family: 'Droid Sans';
   font-weight: 400;
   margin-bottom: 0;
 }
-h1 { font-size: 4em; }
+h1 { font-size: 3em; }
 h2 { font-size: 2em; }
 h3 { font-size: 1.6em; }
 .footnote {
