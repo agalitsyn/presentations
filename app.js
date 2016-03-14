@@ -2,7 +2,7 @@ var couchapp = require('couchapp'),
     path = require('path');
 
 ddoc = {
-  _id: '_design/',
+  _id: '_design/presentation-title',
   rewrites: [{
     from: '',
     to: '/index.html'

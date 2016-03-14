@@ -23,7 +23,7 @@ module.exports = function(grunt) {
       app: {
         options: {
           data: {
-            title: 'Управляемый балансировщик',
+            title: 'presentation-title',
             content: fs.readFileSync('src/slides.md').toString()
           }
         },

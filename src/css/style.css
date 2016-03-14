@@ -7,7 +7,7 @@ body {
 }
 h1, h2, h3 {
   font-family: 'Yanone Kaffeesatz';
-  font-weight: 200;
+  font-weight: 400;
   margin-bottom: 0;
 }
 h1 { font-size: 4em; }
@@ -97,7 +97,7 @@ code {
 /* Two-column layout */
 .left-column {
   color: #777;
-  width: 30%;
+  width: 20%;
   height: 92%;
   float: left;
 }
@@ -105,7 +105,7 @@ code {
     color: #000;
   }
 .right-column {
-  width: 65%;
+  width: 75%;
   float: right;
   padding-top: 2em;
 }
