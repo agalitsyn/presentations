@@ -1,6 +1,6 @@
 name: inverse
 layout: true
-class: center, middle, inverse
+class: center, middle
 ---
 # Автоматизация тестовой инфраструктуры
 <!-- [ri-mahrk] -->
@@ -10,6 +10,8 @@ class: center, middle, inverse
 Всем привет, меня зовут Антон, и сегодня мы поговорим об автоматизации тестовой инфраструктуры в 2ГИСе
 
 ---
+template: inverse
+
 ## План
 ---
 layout: false

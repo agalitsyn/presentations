@@ -1,12 +1,15 @@
-@import url(http://fonts.googleapis.com/css?family=Droid+Serif);
-@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+/*@import url(http://fonts.googleapis.com/css?family=Droid+Serif&subset=latin,cyrillic);*/
+/*@import url(http://fonts.googleapis.com/css?family=Droid+Sans&subset=latin,cyrillic);*/
+/*@import url(https://fonts.googleapis.com/css?family=Kurale&subset=latin,cyrillic);*/
+/*@import url(https://fonts.googleapis.com/css?family=PT+Mono&subset=latin,cyrillic);*/
+@import url(https://fonts.googleapis.com/css?family=Exo+2&subset=latin,cyrillic);
 
 body {
-  font-family: 'Droid Serif';
+  font-family: 'Exo 2';
   font-size: 20px;
 }
 h1, h2, h3 {
-  font-family: 'Droid Sans';
+  font-family: 'Exo 2';
   font-weight: 400;
   margin-bottom: 0;
 }
@@ -21,7 +24,8 @@ li p { line-height: 1.25em; }
 .red { color: #fa0000; }
 .large { font-size: 2em; }
 a, a > code {
-  color: rgb(249, 38, 114);
+  /*color: rgb(249, 38, 114);*/
+  color: #6a9fb5;
   text-decoration: none;
 }
 code {
