@@ -48,8 +48,7 @@ module.exports = function(grunt) {
     },
     open: {
       dist: {
-        path: 'http://localhost:5455',
-        app: 'xdg-open'
+        path: 'http://localhost:5455'
       }
     },
     clean: {
