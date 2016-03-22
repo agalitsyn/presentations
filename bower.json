@@ -1,6 +1,6 @@
 {
-  "name": "package",
-  "version": "0.0.0",
+  "name": "agalitsyn",
+  "private": true,
   "dependencies": {
     "remark": "^0.13.0"
   }
