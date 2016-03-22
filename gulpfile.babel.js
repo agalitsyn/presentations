@@ -47,6 +47,7 @@ gulp.task('lint:test', lint('test/spec/**/*.js', testLintOptions));
 
 gulp.task('html', ['styles', 'scripts'], () => {
   return gulp.src('app/*.html')
+    .pipe($.rigger())
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.cssnano()))
@@ -84,7 +85,13 @@ gulp.task('extras', () => {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('serve', ['styles', 'scripts', 'fonts'], () => {
+gulp.task('htmlincludes', () => {
+  return gulp.src('app/*.html')
+    .pipe($.rigger())
+    .pipe(gulp.dest('.tmp'))
+});
+
+gulp.task('serve', ['htmlincludes', 'styles', 'scripts', 'fonts'], () => {
   browserSync({
     notify: false,
     port: 9000,
@@ -98,10 +105,11 @@ gulp.task('serve', ['styles', 'scripts', 'fonts'], () => {
 
   gulp.watch([
     'app/*.html',
-    'app/slides.md',
     'app/images/**/*',
     '.tmp/fonts/**/*'
-  ]).on('change', reload);
+  ]).on('change', () => {
+      gulp.run('htmlincludes', reload);
+    });
 
   gulp.watch('app/styles/**/*.css', ['styles']);
   gulp.watch('app/scripts/**/*.js', ['scripts']);
