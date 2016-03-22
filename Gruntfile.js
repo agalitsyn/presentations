@@ -23,7 +23,7 @@ module.exports = function(grunt) {
       app: {
         options: {
           data: {
-            title: 'presentation-title',
+            title: 'infrastructure automation in 2gis',
             content: fs.readFileSync('src/slides.md').toString()
           }
         },
@@ -77,12 +77,6 @@ module.exports = function(grunt) {
         ],
         tasks: ['template']
       }
-    },
-    mkcouchdb: {
-      app: require('./couchapp.json')
-    },
-    couchapp: {
-      app: require('./couchapp.json')
     }
   });
 
@@ -94,12 +88,6 @@ module.exports = function(grunt) {
     'clean',
     'copy',
     'template'
-  ]);
-
-  grunt.registerTask('deploy', [
-    'build',
-    'mkcouchdb',
-    'couchapp'
   ]);
 
   grunt.registerTask('server', [

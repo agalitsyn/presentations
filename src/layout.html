@@ -9,9 +9,12 @@
     <textarea id="source">
 <%= content %>
     </textarea>
-    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
+    <script src="../bower_components/remark/out/remark.min.js"></script>
     <script type="text/javascript">
-      var slideshow = remark.create();
+      var slideshow = remark.create({
+        sourceUrl: 'slides.md',
+        ratio: "16:9"
+      });
     </script>
   </body>
 </html>
