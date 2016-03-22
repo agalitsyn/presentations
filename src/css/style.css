@@ -4,6 +4,10 @@
 /*@import url(https://fonts.googleapis.com/css?family=PT+Mono&subset=latin,cyrillic);*/
 @import url(https://fonts.googleapis.com/css?family=Exo+2&subset=latin,cyrillic);
 
+.codefest-bg {
+  background: url('../images/bg.gif') center 12px repeat;
+}
+
 body {
   font-family: 'Exo 2';
 }
@@ -17,7 +21,7 @@ h2 { font-size: 2em; }
 h3 { font-size: 1.6em; }
 
 .remark-slide-content {
-  font-size: 28px;
+  font-size: 32px;
 }
 
 .footnote {
