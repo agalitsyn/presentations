@@ -27,6 +27,14 @@
   background: url('../images/bg.gif') center 12px repeat;
 }
 
+.dgis-bg {
+  background-image: url('../images/map.png');
+  background-size: cover!important;
+  background-position: center!important;
+  background-repeat: no-repeat;
+  /*opacity: 0.6;*/
+}
+
 body {
   font-family: 'Exo 2';
 }
