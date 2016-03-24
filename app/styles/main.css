@@ -48,7 +48,11 @@ h2 { font-size: 2em; }
 h3 { font-size: 1.6em; }
 
 .remark-slide-content {
-  font-size: 34px;
+  font-size: 38px;
+}
+
+.remark-code, .remark-inline-code {
+  font-size: 1em;
 }
 
 .footnote {
