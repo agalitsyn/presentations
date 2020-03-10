@@ -1,19 +1,21 @@
 var fs = require('fs');
 
+const srcFolder = '2016-codefest-infrastructure-automation-at-2gis'
+
 module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     jshint: {
-      files: ['src/js/reveal.js'],
+      files: [srcFolder+'/js/reveal.js'],
       options: {}
     },
     copy: {
       app: {
         files: [{
           expand: true,
-          cwd: 'src',
+          cwd: srcFolder,
           src: ['js/**', 'css/**', 'images/**'],
           dest: 'dist/'
         }]
@@ -24,11 +26,11 @@ module.exports = function(grunt) {
         options: {
           data: {
             title: 'presentation-title',
-            content: fs.readFileSync('src/slides.md').toString()
+            content: fs.readFileSync(srcFolder+'/slides.md').toString()
           }
         },
         files: {
-          'dist/index.html': ['src/layout.html']
+          'dist/index.html': [srcFolder+'/layout.html']
         }
       }
     },
@@ -64,16 +66,16 @@ module.exports = function(grunt) {
       },
       copy: {
         files: [
-          'src/js/**',
-          'src/css/**',
-          'src/images/**'
+          srcFolder+'/js/**',
+          srcFolder+'/css/**',
+          srcFolder+'/images/**'
         ],
         tasks: ['copy']
       },
       template: {
         files: [
-          'src/slides.md',
-          'src/layout.html'
+          srcFolder+'/slides.md',
+          srcFolder+'/layout.html'
         ],
         tasks: ['template']
       }

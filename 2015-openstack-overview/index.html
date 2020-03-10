@@ -1,0 +1,369 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+
+<head>
+	<title>Используем OpenStack</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen.css">
+	<link rel="stylesheet" href="styles/2gis.css">
+
+	<style type="text/css">
+		.cover-title h2 {
+			position: relative;
+			top: 200px;
+			left: 40px;
+		}
+		.cover-title p {
+			position: relative;
+			top: 200px;
+			left: 40px;
+			font-size: 32px;
+		}
+		.cover-downloaded-picture p {
+			font-size: 50%;
+			position: absolute;
+			top: 600px;
+		}
+		.cover-contacts h2 {
+			position: relative;
+			top: 200px;
+			left: 40px;
+		}
+		.cover-contacts p {
+			position: relative;
+			top: 200px;
+			left: 40px;
+			font-size: 32px;
+		}
+		.cover-contacts div div {
+			width: 250px;
+			height: 250px;
+			position: relative;
+			top: -120px;
+			left: 550px;
+			background: #00b2dd;
+			border-radius: 50%;
+			white-space: nowrap;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.cover-contacts div div span {
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+		}
+		.cover-contacts div div h2 {
+			z-index: auto;
+			vertical-align: middle;
+			position: static;
+			display: inline-block;
+			margin-bottom: 0;
+			color: #fff;
+		}
+
+		.section-begin div {
+			background-color: #00b2dd;
+		}
+		.section-begin h2 {
+			font-size: 100px!important;
+			color: #fff;
+		}
+		.section-demo div {
+			background-color: #a6ce38;
+		}
+
+		.list-compact li {
+			font-size: 22px;
+		}
+
+		.list-large li {
+			font-size: 32px;
+		}
+
+		div p {
+			font-size: 32px;
+		}
+
+		.grey {
+			color: grey;
+		}
+	</style>
+</head>
+
+<body class="list">
+	<header class="caption">
+		<h1>Используем OpenStack</h1>
+		<p>
+			Антон Галицын, <a href="http://2gis.ru" title="2GIS">2GIS</a>
+		</p>
+	</header>
+
+	<section class="slide cover cover-title" id="title"><div>
+		<h2>Используем OpenStack</h2>
+		<p>Антон Галицын</p>
+		<img src="pictures/2gis-cover.png" alt="2GIS Logo">
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Содержание</h2>
+		<ul class="list-large">
+			<li>Что такое OpenStack?</li>
+			<li>Статус 2GIS OpenStack</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Содержание</h2>
+		<ul class="list-compact">Обзор и демо компонентов
+			<li>Dashboard (Horizon)</li>
+			<li>Compute (Nova)</li>
+			<li>Glance (VMI)</li>
+			<li>Cinder (Volumes)</li>
+			<li>Neutron (Network)</li>
+			<li>Keystone (Auth)</li>
+			<li>Designate (DNS)</li>
+			<li>Heat (Orchestration)</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout section-begin"><div>
+		<h2>Что такое OpenStack?</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Что такое OpenStack?</h2>
+		<p>OpenStack - набор сервисов с унифицированными интерфейсами, которые
+		позволяют управлять compute, storage и networking ресурсами в датацентре,
+		а так же имеют общие сервисы.</p>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>OpenStack - open source</h2>
+		<ul><a href="http://status.openstack.org/" title="OpenStack status">status.openstack.org</a>
+			<li>Статус релиза</li>
+			<li>Активные code review</li>
+			<li>Roadmap</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>OpenStack - open source</h2>
+		<ul>Сообщество
+			<li>Ядро <a href="https://github.com/openstack" title="OpenStack github">github.com/openstack</a></li>
+			<li>Инкубатор <a href="https://github.com/stackforge" title="Stackforge github">github.com/stackforge</a></li>
+			<li>Неофициальные проекты <a href="https://github.com/search?q=openstack" title="Search OpenStack projects on github">github.com/search?q=openstack</a></li>
+			<li>Конференции, встречи, Q&A, mail-lists, и т.д. <a href="https://www.openstack.org/community/" title="OpenStack community portal">openstack.org/community</a></li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Контрибьюторы OpenStack</h2>
+		<ul><a href="https://www.openstack.org/foundation/companies/" title="OpenStack foundation">openstack.org/foundation/companies</a>
+			<li>Red Hat</li>
+			<li>Rackspace</li>
+			<li>IBM</li>
+			<li>Intel</li>
+			<li>NASA</li>
+			<li>HP</li>
+			<li>Cisco</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout section-begin"><div>
+		<h2>Статус 2GIS OpenStack</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Особенности</h2>
+		<ul class="list-compact">
+			<li>Поддерживается командами CD и INFRAADM</li>
+			<li>Автоматический деплоймент</li>
+			<li>Отказоустойчивость (сервисы x3) </li>
+			<li><span class="grey">Пока</span> 2 hardware сервера</li>
+		</ul>
+		<ul class="list-compact">Ожидается
+			<li>Больше hardware серверов</li>
+			<li>Постепенная миграция dev proxmox кластера</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Подключенные команды</h2>
+		<ul class="list-compact">
+			<li>Личный кабинет</li>
+			<li>Буклеты</li>
+			<li>Flamp</li>
+			<li>Online</li>
+			<li>Persona</li>
+			<li>Photo</li>
+			<li>WebAPI</li>
+			<li>Microservices</li>
+			<li>Webmaps</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Подключенные команды</h2>
+		<ul class="list-compact">
+			<li>QA Automation</li>
+			<li>Casino</li>
+			<li>Fiji</li>
+			<li>Internal admin</li>
+			<li>Load testing</li>
+			<li>Continuous Delivery</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Подробный статус</h2>
+		<p>CD State report</p>
+	</div></section>
+
+	<section class="slide shout" id="orange_shout"><div>
+		<h2>Обзор и демо сервисов</h2>
+		<style>
+			#orange_shout div {
+				background-color: #e77c4f;
+			}
+			#orange_shout h2 {
+				color: #fff;
+				font-size: 100px;
+			}
+		</style>
+	</div></section>
+
+	<section class="slide shout section-begin"><div>
+		<h2>Horizon (Dashboard)</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Что такое Horizon?</h2>
+		<ul>Панель для управления сервисами
+			<li>Стандартизованный UI</li>
+			<li>Единая точка входа для юзеров</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout section-begin"><div>
+		<h2>Nova (Compute)</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Что такое Nova?</h2>
+		<ul>Управление виртуальными машинами.
+			<li>Обработка запросов на создание виртуальных машин</li>
+			<li>Соединение их с внешним миром</li>
+			<li>Контроль за работоспособностью и распределением нагрузки на физические машины и каналы связи</li>
+			<li>Реакция на сбои</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout section-begin"><div>
+		<h2>Glance (VMI)</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Что такое Glance?</h2>
+		<ul>Управление образами виртуальных машин
+			<li>Хранение</li>
+			<li>Поиск</li>
+			<li>Менеджмент образов</li>
+			<li>Уровни видимости</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout section-begin"><div>
+		<h2>Cinder (Volumes)</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Что такое Cinder?</h2>
+		<ul>Сервис управления постоянными хранилищами
+			<li>Создание и удаление</li>
+			<li>Монтирование и демонтирование к VM</li>
+			<li>Создание и удаление snapshots</li>
+			<li>Создание из snapshot</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout section-begin"><div>
+		<h2>Neutron (Network)</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Что такое Neutron?</h2>
+		<ul>Сервис виртуальных сетей
+			<li>Сети</li>
+			<li>Подсети</li>
+			<li>Порты</li>
+			<li>Роутеры</li>
+			<li>Floating IP</li>
+			<li>Firewall</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout section-begin"><div>
+		<h2>Keystone (Auth)</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Что такое Keystone?</h2>
+		<ul>Сервис авторизации
+			<li>Управление пользователями, проектами, ролями</li>
+			<li>Service discovery</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout section-begin"><div>
+		<h2>Designate (DNS)</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Что такое Designate?</h2>
+		<ul>DNS как сервис
+			<li>Управление DNS серверами</li>
+			<li>Управление доменами</li>
+			<li>Управление записями</li>
+		</ul>
+		<p></p>
+	</div></section>
+
+	<section class="slide shout section-begin"><div>
+		<h2>Heat (Orchestration)</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Что такое Heat?</h2>
+		<ul>Автоматизация облачных сервисов
+			<li>Объединение ресурсов в группы</li>
+			<li>Связь ресурсов, зависимости</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Хочу попробовать!</h2>
+		<ul class="list-large">
+			<li>2GIS OpenStack User FAQ</li>
+			<li>2GIS OpenStack Dashboard</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Моей команды нет в списке?!</h2>
+		<p>Заводите задачу в Jira</p>
+	</div></section>
+
+	<section class="slide cover cover-contacts"><div>
+		<h2>Команда CD</h2>
+		<div><span></span><h2>Спасибо!</h2></div>
+		<img src="pictures/2gis-cover.png" alt="2GIS Logo">
+	</div></section>
+
+	<div class="progress"><div></div></div>
+
+	<script src="node_modules/shower-core/shower.min.js"></script>
+
+</body>
+</html>

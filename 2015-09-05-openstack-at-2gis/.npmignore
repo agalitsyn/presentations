@@ -1,0 +1,6 @@
+*
+!images/**
+!pictures/**
+!index.html
+!README.md
+!package.json

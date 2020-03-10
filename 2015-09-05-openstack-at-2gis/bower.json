@@ -1,0 +1,15 @@
+{
+  "main": "index.html",
+  "ignore": [
+    "*",
+    "!pictures/**",
+    "!images/**",
+    "!index.html",
+    "!README.md",
+    "!bower.json"
+  ],
+  "dependencies": {
+    "shower-core": "~1.0.7",
+    "shower-ribbon": "~1.0.11"
+  }
+}

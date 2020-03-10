@@ -1,0 +1,434 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+
+<head>
+	<title>OpenStack в 2ГИС</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen.css">
+	<link rel="stylesheet" href="styles/2gis.css">
+
+	<style type="text/css">
+		.cover-title h2 {
+			position: relative;
+			top: 200px;
+			left: 40px;
+		}
+		.cover-title p {
+			position: relative;
+			top: 200px;
+			left: 40px;
+			font-size: 32px;
+		}
+		.cover-downloaded-picture p {
+			font-size: 50%;
+			position: absolute;
+			top: 600px;
+		}
+		.cover-contacts h2 {
+			position: relative;
+			top: 200px;
+			left: 40px;
+		}
+		.cover-contacts p {
+			position: relative;
+			top: 200px;
+			left: 40px;
+			font-size: 32px;
+		}
+		.cover-contacts div div {
+			width: 250px;
+			height: 250px;
+			position: relative;
+			top: -120px;
+			left: 550px;
+			background: #00b2dd;
+			border-radius: 50%;
+			white-space: nowrap;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.cover-contacts div div span {
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+		}
+		.cover-contacts div div h2 {
+			z-index: auto;
+			vertical-align: middle;
+			position: static;
+			display: inline-block;
+			margin-bottom: 0;
+			color: #fff;
+		}
+
+		.section-begin div {
+			background-color: #00b2dd;
+		}
+		.section-begin h2 {
+			font-size: 100px!important;
+			color: #fff;
+		}
+		.section-demo div {
+			background-color: #a6ce38;
+		}
+
+		.list-compact li {
+			font-size: 22px;
+		}
+
+		.list-large li {
+			font-size: 32px;
+		}
+
+		div p {
+			font-size: 32px;
+		}
+
+		.grey {
+			color: grey;
+		}
+	</style>
+</head>
+
+<body class="list">
+	<header class="caption">
+		<h1>OpenStack в 2ГИС</h1>
+		<p>
+			Антон Галицын, <a href="http://2gis.ru" title="2GIS">2GIS</a>
+		</p>
+	</header>
+
+	<section class="slide cover cover-title" id="title"><div>
+		<h2>OpenStack в 2ГИС</h2>
+		<p>Антон Галицын</p>
+		<img src="pictures/2gis-cover.png" alt="2GIS Logo">
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Содержание</h2>
+		<ul class="list-large">
+			<li>Что такое OpenStack?</li>
+			<li>Статус OpenStack в 2ГИС</li>
+			<li>Требования, сценарии использования</li>
+			<li>История интеграции в 2ГИС</li>
+			<li><span style="color: #EC971F">[Bonus]</span> Private cloud quickstart</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout section-begin"><div>
+		<h2>Что такое OpenStack?</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Что такое OpenStack?</h2>
+		<p>OpenStack - набор сервисов с унифицированными интерфейсами, которые
+		позволяют управлять compute, storage и networking ресурсами в датацентре,
+		а так же имеют общие сервисы.</p>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>OpenStack - open source</h2>
+		<ul>
+			<li>Ядро <a href="https://github.com/openstack" title="OpenStack github">github.com/openstack</a></li>
+			<li>Инкубатор <a href="https://github.com/stackforge" title="Stackforge github">github.com/stackforge</a></li>
+			<li>Статус релиза <a href="http://status.openstack.org/" title="OpenStack status">status.openstack.org</a></li>
+			<li>Контрибьюторы <a href="https://www.openstack.org/foundation/companies/" title="OpenStack foundation">openstack.org/foundation/companies</a></li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout section-begin"><div>
+		<h2>Статус OpenStack в 2ГИС</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Статус OpenStack в 2ГИС</h2>
+		<ul>
+			<li>20 команд</li>
+			<li>250+ VMs</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Статус OpenStack в 2ГИС</h2>
+		<ul>
+			<li>3x control plane</li>
+			<li>3x backing services</li>
+			<li>7 compute серверов</li>
+			<li>1 инсталляция во внутренней сети</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout section-begin"><div>
+		<h2>Сценарии использования и требования</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Сценарии Dev / QA / PM</h2>
+		<ul>
+			<li>Рабочее окружение</li>
+			<li>Демо стенды</li>
+			<li>Интеграционные стенды</li>
+			<li>Тестовые стенды</li>
+			<li>Командная инфраструктура</li>
+			<li>Внутренние сервисы</li>
+			<li>Эксперименты</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Последствия downtime</h2>
+		<ul>
+			<li>Лежит инфраструктура команды &rarr; отсрочка релиза или релиз без регрессии</li>
+			<li>Лежит интеграционный стенд &rarr; отсрочка разработки интеграционной фичи</li>
+			<li>Лежит демо стенд &rarr; отсрочка фидбека о новой фиче</li>
+			<li>Потеря репутации</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Сценарии Dev / Ops</h2>
+		<ul>
+			<li>Внутренние сервисы</li>
+			<li>Эксперименты</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Требования</h2>
+		<ul>
+			<li>Стабильность</li>
+			<li>Производительность</li>
+			<li>Малый downtime</li>
+			<li>Простая поддержка</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Будущее</h2>
+		<ul>
+			<li>Боевая инфраструктура - 4 дата центра</li>
+			<li>Upgrade на Kilo и Liberty</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout" id="orange_shout"><div>
+		<h2>Как удовлетворить требования?</h2>
+		<style>
+			#orange_shout div {
+				background-color: #e77c4f;
+			}
+			#orange_shout h2 {
+				color: #fff;
+				font-size: 100px;
+			}
+		</style>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>1 - cервисы OpenStack</h2>
+		<ul class="list-compact">
+			<li>Dashboard (Horizon)</li>
+			<li>Compute (Nova)</li>
+			<li>Glance (VMI)</li>
+			<li>Cinder (Volumes)</li>
+			<li>Neutron (Network)</li>
+			<li>Keystone (Auth)</li>
+			<li>Designate (DNS)</li>
+			<li>Heat (Orchestration)</li>
+			<li>Ceilometer (Telemetry)</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>2 - мониторинг</h2>
+		<ul>
+			<li>Железо</li>
+			<li>Compute сервера</li>
+			<li>Control plane сервера</li>
+			<li>Сервисы</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>3 - логирование</h2>
+		<ul>Централизованный сервер логов
+			<li>OpenStack сервисы</li>
+			<li>Backing сервисы</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>4 - резервное копирование</h2>
+		<p>Регулярные бэкапы БД</p>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>5 - deploy</h2>
+		<ul>
+			<li>Храние конфигурации в коде</li>
+			<li>Создание новых узлов</li>
+			<li>Доставка патчей</li>
+			<li>Минорные апгрейды</li>
+			<li>Мажорные апгрейды</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>6 - автотесты</h2>
+		<ul>
+			<li>Smoke тесты на API</li>
+			<li>Full regression тесты</li>
+			<li>Тесты на деплой</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>7 - статистика</h2>
+		<ul>
+			<li>Uptime</li>
+			<li>Работоспособность P0 сценариев</li>
+			<li>Телеметрия по проектам</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>8 - команда</h2>
+		<ul>
+			<li>Интеграция</li>
+			<li>Тех. поддержка</li>
+			<li>Работа с людьми</li>
+			<li>Промоушен</li>
+			<li>Развитие</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout" id="green_shout"><div>
+		<h2>История в 2ГИС</h2>
+		<style>
+			#green_shout div {
+				background-color: #a6ce38;
+			}
+			#green_shout h2 {
+				font-size: 100px!important;
+			}
+		</style>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Было</h2>
+		<ul>
+			<li>У админов есть Proxmox</li>
+			<li>У команд есть vagrant и что-то в proxmox</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Проблемы процессов</h2>
+		<ul>
+			<li>Создание виртуалок по тикету</li>
+			<li>Нет развития автоматизации и тестирования</li>
+			<li>Есть ничьи машинки</li>
+			<li>По ошибке удалил не свою машинку</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Проблемы инфраструктуры</h2>
+		<ul>
+			<li>Нет разделения по проектам</li>
+			<li>Старые ядра Linux</li>
+			<li>Конфликты IP адресов</li>
+			<li>Рассинхронизация версий proxmox, баги</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Проблемы развития</h2>
+		<ul>
+			<li>Одноранговый кластер, не дать доступ командам, каша и бардак</li>
+			<li>Плагины либо платные либо плохие</li>
+			<li>Все делается медленно</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Поиск замены Proxmox</h2>
+		<ul>
+			<li>OpenStack</li>
+			<li>Apache Cloudstack</li>
+			<li>Canonical Juju</li>
+			<li>Оставить все как есть</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>OpenStack первый</h2>
+		<ul>
+			<li>Ice House</li>
+			<li>1 control plane</li>
+			<li>1 backing services</li>
+			<li>2 compute node</li>
+			<li>4 команды юзеров</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2 style="text-decoration:line-through">OpenStack первый</h2>
+		<ul>
+			<li>В proxmox удалили control plane</li>
+			<li>Compute хосты остались жить</li>
+			<li>Команды в отчаянии</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout section-begin"><div>
+		<h2>Спустя 2 недели...</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>OpenStack второй</h2>
+		<ul>
+			<li>Juno</li>
+			<li>3 control plane</li>
+			<li>3 backing services</li>
+			<li>Дальнейшее развитие</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout" id="yellow_shout"><div>
+		<h2>Private cloud quickstart</h2>
+		<style>
+			#yellow_shout div {
+				background-color: #f9ec00;
+			}
+			#yellow_shout h2 {
+				font-size: 100px!important;
+			}
+		</style>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Вам понадобится</h2>
+		<ul>
+			<li>Попробовать <a href="https://github.com/openstack-dev/devstack">devstack</a></li>
+			<li>Определиться с набором сервисов</li>
+			<li>Сервера с Ubuntu trusty (2+)</li>
+			<li>Знание <a href="https://github.com/ansible/ansible">Ansible</a></li>
+			<li><a href="https://github.com/stackforge/os-ansible-deployment">Rackspace private cloud tools</a></li>
+			<li>Осилить порог вхождения (~1 месяц)</li>
+		</ul>
+	</div></section>
+
+	<section class="slide cover cover-contacts"><div>
+		<h2>Вопросы?</h2>
+		<div><span></span><h2>Спасибо!</h2></div>
+		<img src="pictures/2gis-cover.png" alt="2GIS Logo">
+	</div></section>
+
+	<div class="progress"><div></div></div>
+
+	<script src="node_modules/shower-core/shower.min.js"></script>
+</body>
+</html>
