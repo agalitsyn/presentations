@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "start": "npx serve -l 8080",
+    "publish": "grunt publish",
+    "archive": "grunt archive"
+  },
   "dependencies": {
     "shower-core": "^1.0.7",
     "shower-ribbon": "^1.0.11"
